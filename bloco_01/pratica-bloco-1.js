@@ -385,6 +385,5 @@ console.log ("O imposto de renda da proposta PJ é: " + mostraImposto(salarioPJ)
 
 */
 
-//26
 
 
