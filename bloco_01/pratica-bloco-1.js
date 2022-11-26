@@ -260,7 +260,131 @@ function calculate(operation, numberOne, numberTwo) {
 
 console.log(calculate("soma", 10, 2))
 
+//22
+function calculaNotas(valor, cedula) {
+    let qtdeNotas = parseInt(valor/cedula, 10)
+    
+    console.log(qtdeNotas + " nota (s) de R$: " + cedula + ",00")
+}
+
+function mostraNotas(valor) {
+    if(valor >= 100) {
+        calculaNotas(valor, 100)
+        valor = valor%100    
+    }
+    if(valor >= 50) {
+        calculaNotas(valor, 50)
+        valor = valor%50
+    }
+    if(valor >= 20) {
+        calculaNotas(valor, 20)
+        valor = valor%20
+    }
+    if(valor >= 10) {
+        calculaNotas(valor, 10)
+        valor = valor%10
+    }
+    if(valor >= 5) {
+        calculaNotas(valor, 5)
+        valor = valor%5
+    }
+    if(valor >= 2) {
+        calculaNotas(valor, 2)
+        valor = valor%2
+    }
+    if(valor >= 1) {
+        calculaNotas(valor, 1)
+        valor = valor%1
+    }
+}
+
+mostraNotas(576)
+
+//23
+function calculaHorario(seconds){
+    let minutes
+    let hours
+
+    if(seconds >= 60) {
+        minutes = parseInt(seconds/60, 10)
+        seconds = seconds%60
+        
+        if(minutes >= 60) {
+            hours = parseInt(minutes/60, 10)
+            minutes = minutes%60
+            
+            if(hours > 24) {
+                console.log("Horario invalido")
+            }
+            else {
+                console.log(hours+":" + minutes+":" + seconds)
+            }
+        }
+        else {
+            console.log("0:" + minutes+":" + seconds)   
+        }
+    }
+    else {
+        console.log("0:0:" + seconds)
+    }
+    
+}
+
+let timeInSeconds = 33567
+calculaHorario(timeInSeconds)
+
+//24 && 25
+let salarioCLT = 2000
+let salarioPJ = 3000
+
+function calculaCLT(salarioCLT) {
+    let beneficio = 700
+    let fgts = 1.08
+    let decimoTerceiro = salarioCLT/12
+    let ferias = (salarioCLT/3)/12
+
+    let salario = (salarioCLT * fgts) + decimoTerceiro + beneficio + ferias
+
+    return salario.toFixed(2)
+}
+
+if (salarioPJ > calculaCLT(salarioCLT)) {
+    console.log("A proposta de salario PJ é mais vantajosa")
+}
+else {
+    console.log("A proposta de salario CLT é mais vantajosa")
+}
+
+function calculaImposto(salario, aliquota) {
+    let impostoDeRenda = salario * aliquota
+    return impostoDeRenda
+}
+
+function mostraImposto(salario) {
+    let salarioAnual = salario * 12
+    
+    if(salarioAnual <= 21453.24 ) {
+        return 0
+    }
+    else if (salarioAnual >= 21453.25 && salarioAnual <= 32151.48) {
+        return calculaImposto(salarioAnual, 0.075)
+    }
+    else if (salarioAnual >= 32151.49 && salarioAnual <= 42869.16) {
+        return calculaImposto(salarioAnual, 0.15)
+    }
+    else if (salarioAnual >= 42869.17 && salarioAnual <= 53565.72) {
+        return calculaImposto(salarioAnual, 0.225)
+    }
+    else {
+        return calculaImposto(salarioAnual, 0.275)
+    }
+}
+
+console.log ("O imposto de renda da proposta CLT é: " + mostraImposto(salarioCLT).toFixed(2)) 
+console.log ("O imposto de renda da proposta PJ é: " + mostraImposto(salarioPJ).toFixed(2)) 
 
 */
+
+//26
 
 
