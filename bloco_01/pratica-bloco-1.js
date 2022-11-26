@@ -220,10 +220,47 @@ valueOne = aux1
 
 console.log (valueOne, valueTwo, valueThree)
 
+//19
+function checkSignal(number) {
+    if (number >= 0) {
+        console.log(number + ' É positivo')
+    }
+    else {
+        console.log(number + ' É negativo')
+    }
+}
+
+checkSignal(2)
+
+//20
+function double(number) {
+    return number * 2
+}
+
+console.log(double(-10))
+
+//21
+function calculate(operation, numberOne, numberTwo) {
+    if(operation === "soma") {
+        return numberOne + numberTwo
+    }
+    else if (operation === "subtrai") {
+        return numberOne - numberTwo
+    }
+    else if (operation === "multiplica") {
+        return numberOne * numberTwo
+    }
+    else if (operation === "divide") {
+        return numberOne / numberTwo
+    }
+    else {
+        return "Operação inválida"
+    }
+}
+
+console.log(calculate("soma", 10, 2))
+
 
 */
-
-//19
-
 
 
