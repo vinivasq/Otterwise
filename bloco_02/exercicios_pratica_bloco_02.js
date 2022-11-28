@@ -145,19 +145,203 @@ for (let i = 0; i < values.length; i++) {
 console.log('Menor valor: ' + smallerValue)
 console.log('Posição: ' + position)
 
+// liste os projetos ativos de um usuario
+let user = {
+    name : "Vinicius",
+    projects: [
+        {
+            name: "projeto 1",
+            start: "02/09/2022",
+            active: true
+        },
+        {
+            name: "projeto 2",
+            start: "22/09/2022",
+            active: false
+        },
+        {
+            name: "projeto 3",
+            start: "05/10/2022",
+            active: true
+        },
+        {
+            name: "projeto 4",
+            start: "12/10/2022",
+            active: false
+        },
+        {
+            name: "projeto 5",
+            start: "09/11/2022",
+            active: true
+        },
+    ],
+}
+
+for (let i=0 ; i < user.projects.length ; i++) {
+    if(user.projects[i].active){
+        console.log(user.projects[i].name)
+    } 
+    
+}
+
+//13
+let object = {
+    name: "juca",
+    projects: [
+        {
+            name: "Projeto 1",
+            start: "01/02/2021"
+        },
+        {
+            name: "Projeto 2",
+            start: "03/03/2021"
+        }
+    ]
+}
+
+console.log(object.name)
+console.log(object.projects[1])
+console.log(object.projects[0].name)
+
+//14
+let myUser = {
+    name: "Vinicius Vasques",
+    age: 21,
+    email: "vinivasq@hotmail.com",
+}
+
+console.log(myUser)
+
+//15
+let estudantes = [
+    {
+        nome: "Marcos",
+        notas: [10, 7, 2]
+    },
+    {
+        nome: "Michele",
+        notas: [10, 10, 10]
+    },
+    {
+        nome: "Pedro",
+        notas: [3, 10, 9]
+    },
+    {
+        nome: "Andressa",
+        notas: [6, 6, 8]
+    },
+    {
+        nome: "Cristiana",
+        notas: [7, 9, 2]
+    }
+]
+
+function calculaMedia(notas) {
+    let sum = 0
+    
+    for (let i = 0; i < notas.length; i++) {
+        sum += notas[i]
+    }
+
+    let media = sum/notas.length
+
+    return media.toFixed(2)
+}
+
+for(let i = 0 ; i < estudantes.length ; i++) {
+    if(calculaMedia(estudantes[i].notas) >= 7) {
+        console.log(estudantes[i].nome)
+    }
+}
+
+//16
+let user = {
+    name: "Marília",
+    age: 26,
+    job: "Dev"
+}
+
+console.log("O valor da propriedade name é " + user.name)
+console.log("O valor da propriedade age é " + user.age)
+console.log("O valor da propriedade job é " + user.job)
+
+//17
+let users = [
+    { name: 'Marília', age: 26, job: 'Dev' },
+    { name: 'Juca', age: 21, job: 'RH' },
+    { name: 'Flávia', age: 30, job: 'Financeiro' },
+    { name: 'Sérgio', age: 24, job: 'Dev' },
+]
+
+let isDev = ""
+
+for (let i = 0; i < users.length; i++) {
+    if(users[i].job == "Dev") {
+        isDev += users[i].name + " é dev. "
+    }
+    else {
+        isDev += users[i].name + " não é dev. "
+    } 
+}
+
+console.log(isDev)
+
+//18
+let items = [
+    { nome: 'maçã', quantidade: 2, valor: 0.5},
+    { nome: 'alface', quantidade: 1, valor: 1.73},
+    { nome: 'Água 5L', quantidade: 2, valor: 5.99},
+    { nome: 'Pão Francês', quantidade: 8, valor: 0.63}
+]
+
+let sum = 0
+
+for (let i = 0; i < items.length; i++) {
+    sum += items[i].quantidade * items[i].valor
+    sum.toFixed(2)
+}
+
+console.log("R$: " + sum)
+
+//19 não consegui
+// let encodedStrings = ['  h3ll0 w0rld', '  w3b d3v3l0p3r  ', '0tterw1s3', 'j4v4scr1pt ']
+
+// let decodedString = encodedStrings[0]
+// let decodedArray = []
+
+// for (let i = 0; i < decodedString.length; i++) {
+//     decodedArray[i] = Array(decodedString[i])    
+//     if(decodedArray[i] == '1') {
+//         decodedArray[i] = ['i']
+//     }
+//     else if (decodedArray[i] == '3') {
+//         decodedArray[i] = ['e']
+//     }
+//     else if (decodedArray[i] == '4') {
+//         decodedArray[i] = ['a']
+//     }
+//     else if (decodedArray[i] == '5') {
+//         decodedArray[i] = ['s']
+//     }
+//     else if (decodedArray[i] == '0') {
+//         decodedArray[i] = ['o']
+//     }
+//     else if (decodedArray[i] == ' ') {
+//         decodedArray[i] = ''
+//     }
+//     console.log(decodedArray[i])
+// }]
+
+// for(let i = 0 ; i < encodedStrings.length ; i++) {
+//     decodedString = encodedStrings[i]
+//     let decodedArray =[]
+
+//     for (let i = 0; i < decodedString.length; i++) {
+//         console.log(decodedString)
+//     }
+// }
 
 */
-
-
-
-
-
-
-
-
-
-
-
 
 
 
