@@ -303,18 +303,6 @@ for (let i = 0; i < items.length; i++) {
 
 console.log("R$: " + sum)
 
-
-*/
-
-// for(let i = 0 ; i < encodedStrings.length ; i++) {
-//     encodedString = encodedStrings[i]
-//     let decodedArray =[]
-
-//     for (let i = 0; i < encodedString.length; i++) {
-//         console.log(encodedString)
-//     }
-// }
-
 //19
 function decodeString (encodedString) {
     let encodedArray = []
@@ -355,4 +343,70 @@ for (let i = 0; i < encodedStrings.length; i++) {
 
 console.log(decodedStrings)
 
+
+*/
+
+//20
+
+let user = {
+    name: 'Analu dos santos baptista',
+    cpf: '14776213931',
+    telefone: '8328008258'
+}
+
+function formataNome(nome) {
+    let nomeFormatado = ''
+    for (let i = 0; i < nome.length; i++) {
+        if(nome[i] == 0){
+            nomeFormatado += nome[i]
+            nomeFormatado[i].toUpperCase()
+        }
+        else if (nome[i - 1] == ' '){
+            nomeFormatado += nome[i]
+            nomeFormatado[i].toUpperCase()
+        }
+        else {
+            nomeFormatado += nome[i]
+        }
+    }
+
+    return nomeFormatado
+}
+
+function formataCPF(cpf) {
+    let cpfFormatado = ''
+    for (let i = 0; i < cpf.length; i++) {
+        cpfFormatado += cpf[i]
+        if(i == 2) {
+            cpfFormatado += '.'
+        } else if (i == 5) {
+            cpfFormatado += '.'
+        } else if (i == 8) {
+            cpfFormatado += '-'
+        }
+    }
+    return cpfFormatado
+}
+
+function formataTelefone(telefone) {
+    let ddd = ''
+    let primeiros = ''
+    let ultimos = ''
+
+    for (let i = 0; i < telefone.length; i++) {
+        if(i <= 1){
+            ddd += telefone[i]
+        } else if (i <= 5) {
+            primeiros += telefone[i]
+        } else {
+            ultimos += telefone[i]
+        }
+    }
+    
+    return telefoneFormatado = `(${ddd}) ${primeiros}-${ultimos}`
+}
+
+console.log(formataNome(user.name))
+console.log(formataCPF(user.cpf))
+console.log(formataTelefone(user.telefone))
 
