@@ -343,34 +343,11 @@ for (let i = 0; i < encodedStrings.length; i++) {
 
 console.log(decodedStrings)
 
-
-*/
-
 //20
-
 let user = {
     name: 'Analu dos santos baptista',
     cpf: '14776213931',
     telefone: '8328008258'
-}
-
-function formataNome(nome) {
-    let nomeFormatado = ''
-    for (let i = 0; i < nome.length; i++) {
-        if(nome[i] == 0){
-            nomeFormatado += nome[i]
-            nomeFormatado[i].toUpperCase()
-        }
-        else if (nome[i - 1] == ' '){
-            nomeFormatado += nome[i]
-            nomeFormatado[i].toUpperCase()
-        }
-        else {
-            nomeFormatado += nome[i]
-        }
-    }
-
-    return nomeFormatado
 }
 
 function formataCPF(cpf) {
@@ -409,4 +386,7 @@ function formataTelefone(telefone) {
 console.log(formataNome(user.name))
 console.log(formataCPF(user.cpf))
 console.log(formataTelefone(user.telefone))
+
+*/
+
 
