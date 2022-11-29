@@ -303,45 +303,56 @@ for (let i = 0; i < items.length; i++) {
 
 console.log("R$: " + sum)
 
-//19 não consegui
-// let encodedStrings = ['  h3ll0 w0rld', '  w3b d3v3l0p3r  ', '0tterw1s3', 'j4v4scr1pt ']
-
-// let decodedString = encodedStrings[0]
-// let decodedArray = []
-
-// for (let i = 0; i < decodedString.length; i++) {
-//     decodedArray[i] = Array(decodedString[i])    
-//     if(decodedArray[i] == '1') {
-//         decodedArray[i] = ['i']
-//     }
-//     else if (decodedArray[i] == '3') {
-//         decodedArray[i] = ['e']
-//     }
-//     else if (decodedArray[i] == '4') {
-//         decodedArray[i] = ['a']
-//     }
-//     else if (decodedArray[i] == '5') {
-//         decodedArray[i] = ['s']
-//     }
-//     else if (decodedArray[i] == '0') {
-//         decodedArray[i] = ['o']
-//     }
-//     else if (decodedArray[i] == ' ') {
-//         decodedArray[i] = ''
-//     }
-//     console.log(decodedArray[i])
-// }]
-
-// for(let i = 0 ; i < encodedStrings.length ; i++) {
-//     decodedString = encodedStrings[i]
-//     let decodedArray =[]
-
-//     for (let i = 0; i < decodedString.length; i++) {
-//         console.log(decodedString)
-//     }
-// }
 
 */
 
+// for(let i = 0 ; i < encodedStrings.length ; i++) {
+//     encodedString = encodedStrings[i]
+//     let decodedArray =[]
+
+//     for (let i = 0; i < encodedString.length; i++) {
+//         console.log(encodedString)
+//     }
+// }
+
+//19
+function decodeString (encodedString) {
+    let encodedArray = []
+    let decodedString = []
+
+    for (let i = 0; i < encodedString.length; i++) {
+        encodedArray[i] = Array(encodedString[i])    
+        if(encodedArray[i] == '1') {
+            encodedArray[i] = 'i'
+        }
+        else if (encodedArray[i] == '3') {
+            encodedArray[i] = 'e'
+        }
+        else if (encodedArray[i] == '4') {
+            encodedArray[i] = 'a'
+        }
+        else if (encodedArray[i] == '5') {
+            encodedArray[i] = 's'
+        }
+        else if (encodedArray[i] == '0') {
+            encodedArray[i] = 'o'
+        }
+        else if (encodedArray[i] == ' ') {
+            encodedArray[i] = ''
+        }
+        decodedString += encodedArray[i]
+    }
+
+    return decodedString
+}
+
+let encodedStrings = ['  h3ll0 w0rld', '  w3b d3v3l0p3r  ', '0tterw1s3', 'j4v4scr1pt ']
+let decodedStrings = []
+
+for (let i = 0; i < encodedStrings.length; i++) {
+    decodedStrings[i] = decodeString(encodedStrings[i])
+}
+
+console.log(decodedStrings)
 
 
