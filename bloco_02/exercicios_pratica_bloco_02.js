@@ -388,5 +388,3 @@ console.log(formataCPF(user.cpf))
 console.log(formataTelefone(user.telefone))
 
 */
-
-
