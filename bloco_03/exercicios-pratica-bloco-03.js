@@ -169,29 +169,34 @@ let values = [6, 8, 7, 9]
 console.log(calculaMedia(values))
 
 //08
-let values = [1,2,3,4,-5,6,7,8,9,10]
-
-const encontraMaiorEMenor = (values) => {
-    let maiorValor = 0
-    let posMaiorValor = 0
-    let menorValor = 0
-    let posMenorValor = 0
-    
-    for (let i = 0; i < values.length; i++) {
-        if(values[i] < values[i+1]) {
-            maiorValor = values[i+1]
-            posMaiorValor = i+1
+const encontraValor = (values, tamanho) => {
+    if(tamanho == 'maior') {
+        let maiorValor = 0
+        let posMaiorValor = 0
+        for (let i = 0; i < values.length; i++) {
+            if(values[i] > maiorValor) {
+                maiorValor = values[i]
+                posMaiorValor = i
+            }        
         }
-        else if (values[i] > values[i+1]) {
-            menorValor = values[i+1]
-            posMenorValor = i+1
-        }
+        console.log(`O maior valor é ${maiorValor} e está na posição ${posMaiorValor}`)
     }
-    console.log(`O maior valor é ${maiorValor} e está na posição ${posMaiorValor}`)
-    console.log(`O menor valor é ${menorValor} e está na posição ${posMenorValor}`)
+    
+    else if (tamanho == 'menor') {
+        let menorValor = 0
+        let posMenorValor = 0
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] < menorValor) {
+                menorValor = values[i]
+                posMenorValor = i
+            }
+        }
+        console.log(`O menor valor é ${menorValor} e está na posição ${posMenorValor}`)    
+    }
 }
 
-encontraMaiorEMenor(values)
+let values = [80,-15,3,-20,-5,6,11,8,-90,10]
+encontraValor(values, 'menor')
 
 //09
 let items = [
@@ -293,4 +298,153 @@ ordena(objects, "crescente", 'senioridade')
 
 */
 
+//11
+const exemplares = [
+    { cod: "8568014003",
+    nome: "mais esperto que o diabo",
+    autor: "Napoleon Hill",
+    valor: 24.6,
+    quantidadeVendido: 17675,},
+    {cod: "8550801488",
+    nome: "pai rico, pai pobre",
+    autor: "Robert T. Kiyosaki",
+    valor: 42.71,
+    quantidadeVendido: 8992,},
+    { cod: "8547001085",
+    nome: "antifragil",
+    autor: "Nassim Nicholas Taleb",
+    valor: 70.99,
+    quantidadeVendido: 1700,},
+    {cod: "8595080801",
+    nome: "o investidor inteligente",
+    autor: "Benjamin Graham",
+    valor: 36.3,
+    quantidadeVendido: 8445, },
+    { cod: "8539004119",
+    nome: "o poder do hábito",
+    autor: "Charles Duhigg",
+    valor: 48.9,
+    quantidadeVendido: 14581, },
+    { cod: "8543102146",
+    nome: "essencialismo",
+    autor: "Greg Mckeown",
+    valor: 36.43,
+    quantidadeVendido: 9730, },
+    { cod: "9788539003839",
+    nome: "rápido e devagar",
+    autor: "Daniel Kahneman",
+    valor: 50.93,
+    quantidadeVendido: 5703, },
+    { cod: "8551003429",
+    nome: "princípios",
+    autor: "Ray Dalio",
+    valor: 89.9,
+    quantidadeVendido: 3707, },
+    { cod: "855717358X",
+    nome: "gestão de alta performance",
+    autor: "Andrew S. Grove",
+    valor: 34.94,
+    quantidadeVendido: 442, },
+    { cod: "8550805246",
+    nome: "empresas feitas para vencer",
+    autor: "Jim Collins",
+    valor: 44.2,
+    quantidadeVendido: 824, },
+    { cod: "855080455X",
+    nome: "avalie o que importa",
+    autor: "John Doerr",
+    valor: 40.9,
+    quantidadeVendido: 797, },
+]
 
+const autorMaisVendido = (exemplares) => {
+    let maisVendido = 0
+    
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].quantidadeVendido > maisVendido) {
+            maisVendido = exemplares[i]
+        }
+    }
+
+    return console.log(maisVendido.autor)
+}
+
+const filtraValorAbaixo = (exemplares, valor) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].valor <= valor) {
+            console.log(exemplares[i])
+        }
+    }
+}
+
+const filtraValorAcima = (exemplares, valor) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].valor >= valor) {
+            console.log(exemplares[i])
+        }
+    }
+}
+
+const pesquisaPorNome = (exemplares, nome) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].nome == nome){
+            console.log(exemplares[i])
+        }        
+    }
+}
+
+const pesquisaPorAutor = (exemplares, autor) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].autor == autor) {
+            console.log(exemplares[i])
+        }        
+    }
+}
+
+const pesquisaPorCodigo = (exemplares, codigo) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        if(exemplares[i].cod == codigo) {
+            console.log(exemplares[i])
+        }
+    }
+}
+
+const listaEstoque = (exemplares) => {
+    let lista = ''
+    for (let i = 0; i < exemplares.length; i++) {
+        if(i == exemplares.length -1) {
+            lista += `${exemplares[i].nome}.`
+        } else {
+            lista += `${exemplares[i].nome}, `
+        }
+    }
+
+    return console.log(lista)
+}
+
+const topLivrosVendidos = (exemplares) => {
+    
+    for (let index = 0; index < exemplares.length; index++) {
+        let aux
+        for (let i = 0; i < exemplares.length - 1; i++) {
+            if(exemplares[i].quantidadeVendido < exemplares[i+1].quantidadeVendido){
+                aux = exemplares[i]
+                exemplares[i] = exemplares[i+1]
+                exemplares[i+1] = aux
+            }            
+        }     
+        console.log(exemplares[index].quantidadeVendido)
+    }
+
+    console.log(exemplares)
+
+}
+
+// autorMaisVendido(exemplares)
+// filtraValorAbaixo(exemplares, 35)
+// filtraValorAcima(exemplares, 50)
+// pesquisaPorNome(exemplares, "princípios")
+// pesquisaPorAutor(exemplares, 'Ray Dalio')
+// pesquisaPorCodigo(exemplares, '8550801488')
+// listaEstoque(exemplares)
+topLivrosVendidos(exemplares)
