@@ -295,9 +295,6 @@ let objects = [
 
 ordena(objects, "crescente", 'senioridade')
 
-
-*/
-
 //11
 const exemplares = [
     { cod: "8568014003",
@@ -422,7 +419,7 @@ const listaEstoque = (exemplares) => {
     return console.log(lista)
 }
 
-const topLivrosVendidos = (exemplares) => {
+const topLivrosVendidos = (exemplares, filtro) => {
     
     for (let index = 0; index < exemplares.length; index++) {
         let aux
@@ -433,12 +430,26 @@ const topLivrosVendidos = (exemplares) => {
                 exemplares[i+1] = aux
             }            
         }     
-        console.log(exemplares[index].quantidadeVendido)
+       
+    }
+
+    for (let v = 0; v < filtro; v++) {
+        console.log(exemplares[v])
+                
+    }
+}
+
+const aumentaPreco = (exemplares, taxa) => {
+    for (let i = 0; i < exemplares.length; i++) {
+        exemplares[i].valor *= taxa        
     }
 
     console.log(exemplares)
-
 }
+
+let menuDePesquisa = [autorMaisVendido, filtraValorAbaixo, filtraValorAcima, pesquisaPorNome, pesquisaPorAutor, pesquisaPorCodigo, listaEstoque, topLivrosVendidos, aumentaPreco]
+
+menuDePesquisa[0](exemplares)
 
 // autorMaisVendido(exemplares)
 // filtraValorAbaixo(exemplares, 35)
@@ -447,4 +458,7 @@ const topLivrosVendidos = (exemplares) => {
 // pesquisaPorAutor(exemplares, 'Ray Dalio')
 // pesquisaPorCodigo(exemplares, '8550801488')
 // listaEstoque(exemplares)
-topLivrosVendidos(exemplares)
+// topLivrosVendidos(exemplares, 3)
+// aumentaPreco(exemplares, 1.1)
+
+*/
