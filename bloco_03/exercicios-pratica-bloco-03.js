@@ -461,4 +461,155 @@ menuDePesquisa[0](exemplares)
 // topLivrosVendidos(exemplares, 3)
 // aumentaPreco(exemplares, 1.1)
 
+//12
+let values = [1, 8, 6, 13, 7, 9, 15, 22, 356, 4, 3]
+
+const multiplicaPorDez = (valor) => valor*10
+
+const dividePorCinco = (valor) =>  valor/5
+
+const operacao = (valores, funcao) => {
+    let result = []
+    for (let i = 0; i < valores.length; i++) {
+        result[i] = funcao(valores[i])
+    }
+
+    return result
+}
+
+console.log(operacao(values, multiplicaPorDez))
+console.log(operacao(values, dividePorCinco))
+
+
 */
+
+//13
+let estoque = [
+    {
+        cod: "1589901",
+        name: "Camiseta Polo Azul",
+        stock: 55,
+        price: 79.90,
+        category: "Camisetas"
+    },
+    {
+        cod: "7473522",
+        name: "Camiseta Simples Preta",
+        stock: 87,
+        price: 45.90,
+        category: "Camisetas"
+    },
+    {
+        cod: "7471493",
+        name: "Camiseta Simples Branca",
+        stock: 72,
+        price: 45.90,
+        category: "Camisetas"
+    },
+    {
+        cod: "4159484",
+        name: "Camiseta Polo Vermelha",
+        stock: 9,
+        price: 79.90,
+        category: "Camisetas"
+    },
+    {
+        cod: "8786675",
+        name: "Calça Jeans Preta",
+        stock: 26,
+        price: 120.00,
+        category: "Calças"
+    },
+    {
+        cod: "3874156",
+        name: "Bermuda Preta",
+        stock: 10,
+        price: 89.90,
+        category: "Bermudas"
+    },
+    {
+        cod: "4213737",
+        name: "Calça de Moletom",
+        stock: 12,
+        price: 105.90,
+        category: "Calças"
+    },
+]
+
+const filtros = (estoque, filtro) => {
+    for (let i = 0; i < estoque.length; i++) {
+        if(estoque[i]['name'] == filtro) {
+            console.log(estoque[i])
+        }
+        else if (estoque[i]['cod'] == filtro) {
+            console.log(estoque[i])
+        }
+        else if(estoque[i]['category'] == filtro) {
+            console.log(estoque[i])
+        }
+        else if(estoque[i]['price'] <= filtro) {
+            console.log(estoque[i])
+        }
+    }
+}
+
+const ordenaEstoque = (estoque, ordem, campo) => {
+    if (ordem == 'crescente') {
+        for (let index = 0; index < estoque.length; index++) {
+            let aux
+            for (let i = 0; i < estoque.length; i++) {
+                if(estoque[index][campo] < estoque[i][campo]) {
+                    aux = estoque[index]
+                    estoque[index] = estoque[i]
+                    estoque[i] = aux
+                }
+            }
+        }
+    }
+    else if (ordem == 'decrescente') {
+        for (let index = 0; index < estoque.length; index++) {
+            let aux
+            for (let i = 0; i < estoque.length; i++) {
+                if(estoque[index][campo] > estoque[i][campo]) {
+                    aux = estoque[index]
+                    estoque[index] = estoque[i]
+                    estoque[i] = aux
+                }
+            }
+        }
+    }
+    console.log(estoque)
+}
+
+// ordenaEstoque(estoque, 'decrescente', 'name')
+// filtros(estoque, "150")
+
+const carrinhoDeCompra = []
+
+const compra = (estoque, codigo, quantidade) => {
+
+}
+
+const valorCarrinho = (carrinhoDeCompra) => {
+
+}
+
+const finalizaCompra = (carrinhoDeCompra, formaPagamento, parcelas) => {
+
+}
+
+compra(estoque, )
+
+
+//checa se existe
+//checa se possui estoque 
+//adiciona ao carrinho de compras
+//função que exibe valor total do carrinho
+//função de finalização de compra (valorTotal, formaPagamento)
+//boleto desconto de 10%
+//debito desconto de 15%
+//opção credito recebe quantidade de parcelas (max 12)
+//cada parcela acrescente 3% de juros
+//mostrar o valor da parcela e o total atualizado
+//mostrar no final um relatório com as compras, forma de pagamento
+//e valor total (com numero de parcelas em caso de crédito)
