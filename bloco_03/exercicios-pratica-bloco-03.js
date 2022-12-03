@@ -480,9 +480,6 @@ const operacao = (valores, funcao) => {
 console.log(operacao(values, multiplicaPorDez))
 console.log(operacao(values, dividePorCinco))
 
-
-*/
-
 //13
 const filtros = (estoque, filtro) => {
     for (let i = 0; i < estoque.length; i++) {
@@ -689,3 +686,5 @@ adicionaCarrinho(estoque, '8786675', 1)
 console.log(valorCarrinho(carrinhoDeCompra))
 
 finalizaCompra(carrinhoDeCompra, valorCarrinho, 'credito', 12) 
+
+*/
