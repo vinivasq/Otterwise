@@ -21,6 +21,3 @@
 let array = [{nome: 'Lucas'}, {nome: 'Guilherme'}]
 array.push({nome: 'Vinicius'})
 console.log(array.reverse())
-
-
-
