@@ -14,7 +14,7 @@ const main = async () => {
     let listaCep = []
     let cepsAleatorios = numAleartorios()
 
-    listaCep = await Promise.all(cepsAleatorios.map(cep => searchCep(cep)))
+    listaCep = await Promise.all(searchCep(cepsAleatorios))
 
     console.log(listaCep);
     
