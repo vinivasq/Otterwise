@@ -92,7 +92,7 @@ let items = [
 ]
 
 let valorTotal = items.reduce((acc, item) => {
-    acc += item.valor
+    acc += item.valor * item.quantidade
     return acc
 }, valor = 0).toFixed(2)
 

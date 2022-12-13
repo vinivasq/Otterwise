@@ -19,7 +19,7 @@ const { name, idade } = user;
 const {
   historico_escolar: { historia },
 } = user;
-//console.log(historia);
+// console.log(historia);
 
 //Desestruturação de Array
 const names = ["Barros", "Luis", "Karoline", "André", "Aline"];
@@ -32,7 +32,7 @@ const [primeiroName, , terceiroName] = names;
 
 //Desestruturação de objeto como parâmetro
 const getName = ({ name }) => name;
-console.log(getName(user));
+// console.log(getName(user));
 
 const getPrimeiraPosicao = ([primeira]) => primeira;
 // console.log(getPrimeiraPosicao(names));
@@ -51,4 +51,4 @@ let valueTwo = 70;
 
 //Mudando o nome da variável ao fazer a desestruturação
 const { idade: age } = user;
-console.log(age);
+// console.log(age);
