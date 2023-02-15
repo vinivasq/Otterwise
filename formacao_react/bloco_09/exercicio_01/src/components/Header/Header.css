@@ -1,0 +1,13 @@
+.header {
+  box-shadow: 1px 0px 8px rgba(255, 255, 255, 0.315);
+  text-align: center;
+  padding: 1rem 0rem;
+  margin-bottom: 1rem;
+  background-color: #262626;
+}
+
+.header__title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.375rem;
+  color: #fafafa;
+}
