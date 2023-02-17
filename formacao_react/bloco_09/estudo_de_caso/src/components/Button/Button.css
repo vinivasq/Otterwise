@@ -41,3 +41,37 @@
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.button__solid-blue {
+  background-color: #3182ce;
+}
+
+.button__solid-blue:hover {
+  background-color: #2b6cb0;
+}
+
+.button__outlined-blue{
+  color: #3182ce;
+  border: 1px solid currentColor;
+}
+
+.button__outlined-blue:hover {
+  background-color: #ebf8ff;
+}
+
+.button__solid-pink {
+  background-color: #d53f8c;
+}
+
+.button__solid-pink:hover {
+  background-color: #b83280;
+}
+
+.button__outlined-pink{
+  color: #d53f8c;
+  border: 1px solid currentColor;
+}
+
+.button__outlined-pink:hover {
+  background-color: #FFF5F7;
+}

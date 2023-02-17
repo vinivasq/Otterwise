@@ -12,17 +12,25 @@ function App() {
         Button 2
       </Button>
       <Button variant="solid" disabled>
-        Button3
+        Button 3
       </Button>
       <Button variant="outlined" disabled>
-        Button3
+        Button 4
+      </Button>
+      <Button variant="solid" colorScheme="blue">
+        Button 5
+      </Button>
+      <Button variant="outlined" colorScheme="pink">
+        Button 6
       </Button>
 
-      <Text fontSize="sm">Texto</Text>
-      <Text>Texto</Text>
-      <Text as="h1" fontSize="lg" className="text-red">
-        Texto
-      </Text>
+      <div className="text">
+        <Text align="center" fontSize="sm">Texto</Text>
+        <Text align="start">Texto</Text>
+        <Text align="end" as="h1" fontSize="lg" className="text-red">
+          Texto
+        </Text>
+      </div>
     </div>
   );
 }
