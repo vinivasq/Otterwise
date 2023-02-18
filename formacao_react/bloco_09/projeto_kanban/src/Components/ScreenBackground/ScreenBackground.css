@@ -1,0 +1,14 @@
+.screen{
+  padding: 0 3.75rem;
+  height: 100vh;
+  background: url(../../assets/Home.svg) no-repeat center;
+  background-size: contain;
+  background-color: #E1E8ED;
+}
+
+.screen__title{
+  margin: 0;
+  padding-top: 2.563rem;
+  font-family: 'Roboto';
+  font-weight: 700;
+}
