@@ -10,8 +10,14 @@ const ExemploUseState = () => {
       <button onClick={() => setNumber(number - 1)}>remove</button>
       <button onClick={() => setNumber(number + 1)}>adiciona</button>
 
-      <button onClick={() => {setName(!name)}}>toggle name</button>
-      {name? <p>Vinicius</p> : ""}
+      <button
+        onClick={() => {
+          setName(!name);
+        }}
+      >
+        toggle name
+      </button>
+      {name ? <p>Vinicius</p> : ""}
     </div>
   );
 };
