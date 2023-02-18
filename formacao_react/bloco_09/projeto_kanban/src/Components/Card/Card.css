@@ -1,0 +1,44 @@
+.list__item {
+  max-width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  padding: 1rem 0.625rem;
+}
+
+.item__description {
+  font-weight: 500;
+  font-family: "Roboto";
+  font-size: 0.875rem;
+  margin-bottom: 0.625rem;
+}
+
+.item__info {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+
+.info__tag {
+  border-radius: 2px;
+  color: white;
+  font-family: "Roboto";
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 5px 4px;
+}
+
+.toDo {
+  background-color: #59b4d1;
+}
+
+.inProgress {
+  background-color: #d0935a;
+}
+
+.review {
+  background-color: #945ad1;
+}
+
+.done {
+  background-color: #59d090;
+}

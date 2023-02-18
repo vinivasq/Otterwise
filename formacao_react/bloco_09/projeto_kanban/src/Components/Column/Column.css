@@ -1,0 +1,45 @@
+.container {
+  width: 18.75rem;
+  border-radius: 4px;
+}
+
+.column__head {
+  background-color: #3a6e7e98;
+  border-radius: 4px 4px 0 0;
+  height: 5px;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 0.625rem;
+}
+
+.column__icon {
+  margin-right: 0.625rem;
+}
+
+.column__title {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Roboto";
+}
+
+.toDo {
+  background-color: #59b4d1;
+}
+
+.inProgress {
+  background-color: #d0935a;
+}
+
+.review {
+  background-color: #945ad1;
+}
+
+.done {
+  background-color: #59d090;
+}
