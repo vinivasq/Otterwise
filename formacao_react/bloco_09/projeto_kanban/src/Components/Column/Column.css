@@ -1,10 +1,10 @@
 .container {
   width: 18.75rem;
   border-radius: 4px;
+  min-height: max-content;
 }
 
 .column__head {
-  background-color: #3a6e7e98;
   border-radius: 4px 4px 0 0;
   height: 5px;
   width: 100%;
@@ -28,16 +28,32 @@
   font-family: "Roboto";
 }
 
+.column__head-toDo {
+  background-color: #3a6e7e98;
+}
+
 .toDo {
   background-color: #59b4d1;
+}
+
+.column__head-inProgress {
+  background-color: #805a38a8;
 }
 
 .inProgress {
   background-color: #d0935a;
 }
 
+.column__head-review {
+  background-color: #663f91b4;
+}
+
 .review {
   background-color: #945ad1;
+}
+
+.column__head-done {
+  background-color: #3d855e8c;
 }
 
 .done {

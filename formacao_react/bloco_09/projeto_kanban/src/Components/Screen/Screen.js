@@ -1,13 +1,13 @@
-import "./Screen.css"
+import "./Screen.css";
 
 const Screen = (props) => {
-  const { children } = props
-  return(
-    <main className="screen">
-      <h1 className="screen__title">Kanban</h1>
-      {children}
+  const { children } = props;
+  return (
+    <main className="main">
+      <h1 className="main__title">Kanban</h1>
+      <section className="columns__container">{children}</section>
     </main>
-  )
-}
+  );
+};
 
-export default Screen
+export default Screen;
