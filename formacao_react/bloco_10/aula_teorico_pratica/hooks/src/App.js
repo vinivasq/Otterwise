@@ -3,7 +3,9 @@
 // import Exercicio from "./Components/Exercicio/Exercicio";
 // import ExemploUseState from "./Components/ExemploUseState/ExemploUseState";
 
-import ExercicioRequest from "./Components/ExercicioRequest/ExercicioRequest";
+import OnChange from "./Components/OnChange/OnChange";
+
+// import ExercicioRequest from "./Components/ExercicioRequest/ExercicioRequest";
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       {/* <ExemploUseEffect userId="5"/> */}
       {/* <Exercicio /> */}
       {/* <Exercicio2 value="5" valueTwo="12" /> */}
-      <ExercicioRequest id="1"/>
+      {/* <ExercicioRequest id="1"/> */}
+      <OnChange/>
     </div>
   );
 }
