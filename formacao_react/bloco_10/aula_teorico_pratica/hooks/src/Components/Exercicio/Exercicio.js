@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Exercicio = () => {
   const [description, setDescription] = useState("");
-  const [resource, setResource] = useState();
+  const [resource, setResource] = useState("todos");
   const resourceOptions = ["todos", "posts", "users"];
 
   useEffect(() => {
