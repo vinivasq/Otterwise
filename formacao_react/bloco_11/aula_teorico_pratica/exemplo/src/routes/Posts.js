@@ -12,7 +12,7 @@ const Posts = () => {
             const response = id ? await getPost(id) : await listAllPosts()
             setData(response.data)
         }
-        request()
+        request();
     },[])
 
     if(!data) return <p>Não existem posts a serem exibidos</p>
