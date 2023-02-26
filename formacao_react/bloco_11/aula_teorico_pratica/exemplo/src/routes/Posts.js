@@ -1,25 +1,24 @@
-import { Link } from "react-router-dom"
-import { listAllPosts } from "../services/posts"
+import { useParams } from "react-router-dom"
+import { getPost, listAllPosts } from "../services/posts"
 import { useEffect, useState } from "react"
 
 const Posts = () => {
-    const [data, setData] = useState("")
+    const [data, setData] = useState(null)
+    const { id } = useParams()
+    console.log(id);
 
     useEffect(()=> {
         const request = async() => {
-            const response = await listAllPosts()
-            console.log(response.data);
-            setData(JSON.stringify(response.data))
+            const response = id ? await getPost(id) : await listAllPosts()
+            setData(response.data)
         }
         request()
     },[])
-    return(
-        <div>
-            <p>Voce está em posts</p>
-            <Link to="/">Voltar para Home</Link>
-            <p>{data}</p>
-        </div>
-    )
+
+    if(!data) return <p>Não existem posts a serem exibidos</p>
+    if(id) return <p>{data.title}</p>
+    return data.map((post, i) => <p key={i}>{post.title}</p>)
+
 }
 
 export default Posts

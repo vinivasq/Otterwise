@@ -9,6 +9,7 @@ function App() {
       <Route path="/posts" element={<Posts/>} />
       <Route path="/posts/:id" element={<Posts/>} />
       <Route path="/users" element={<p>users</p>} />
+      <Route path="*" element={<p>Rota não encontrada. 404</p>} />
     </Routes>
   )
 }
