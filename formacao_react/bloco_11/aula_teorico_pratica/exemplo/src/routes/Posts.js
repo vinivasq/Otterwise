@@ -10,7 +10,7 @@ const Posts = () => {
     useEffect(()=> {
         const request = async() => {
             const response = id ? await getPost(id) : await listAllPosts()
-            setData(response.data)
+            setData(response.data);
         }
         request();
     },[])
