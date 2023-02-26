@@ -1,17 +1,16 @@
-import { useEffect } from "react";
-// import { listAllUsers } from "./services/users.js";
-import { listAllPosts } from "./services/posts";
+import { Route, Routes } from "react-router-dom";
+import Home from "./routes/Home"
+import Posts from "./routes/Posts"
 
 function App() {
-  useEffect(() => {
-    const request = async () => {
-      const response = await listAllPosts();
-      console.log(response.data);
-    };
-    request();
-  }, []);
-
-  return <p>teste</p>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/posts" element={<Posts/>} />
+      <Route path="/posts/:id" element={<Posts/>} />
+      <Route path="/users" element={<p>users</p>} />
+    </Routes>
+  )
 }
 
 export default App;
