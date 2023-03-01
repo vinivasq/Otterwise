@@ -18,4 +18,9 @@ export const authProvider = {
       console.log(error);
     }
   },
+
+  signOut: (callback) => {
+    localStorage.removeItem("user");
+    callback();
+  },
 };

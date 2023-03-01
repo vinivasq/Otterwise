@@ -14,7 +14,14 @@ export const AuthProvider = (props) => {
     });
   };
 
-  return <AuthContext.Provider value={{ user, login }} {...props} />;
+  const logout = (callback) => {
+    authProvider.signOut(() => {
+      setUser(null);
+      callback();
+    });
+  };
+
+  return <AuthContext.Provider value={{ user, login, logout }} {...props} />;
 };
 
 export const useAuth = () => {
@@ -29,5 +36,5 @@ export const RequireAuth = ({ children }) => {
     return <Navigate to="/login" state={{ from: location }} />;
   }
 
-  return children
+  return children;
 };
