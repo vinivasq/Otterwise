@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { login } from "../services/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input, Button } from "@chakra-ui/react";
+import { Input, Button, Stack, Flex, Text } from "@chakra-ui/react";
 import * as yup from "yup";
 
 export default function ExemploAula() {
@@ -33,14 +33,26 @@ export default function ExemploAula() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input type="email" {...register("email")} />
-      {errors.email && <span>{errors.email.message}</span>}
+    <Flex
+      as="form"
+      mt="20px"
+      justifyContent="center"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Stack spacing="4" w={["100%", "350px"]}>
+        <Text textAlign="center" fontSize="22px">
+          Meu Formulário
+        </Text>
+        <Input type="email" {...register("email")} />
+        {errors.email && <span>{errors.email.message}</span>}
 
-      <Input type="password" {...register("password")} />
-      {errors.password && <span>{errors.password.message}</span>}
+        <Input type="password" {...register("password")} />
+        {errors.password && <span>{errors.password.message}</span>}
 
-      <Button type="submit">Enviar</Button>
-    </form>
+        <Button colorScheme="blue" type="submit">
+          Enviar
+        </Button>
+      </Stack>
+    </Flex>
   );
 }
