@@ -11,6 +11,9 @@ const Home = () => {
         <Link className="link" to="/exemplo-aula">
           Exemplo de aula
         </Link>
+        <Link className="link" to="/exemplo-components">
+          UI Components
+        </Link>
         <Link className="link" to="/exercicio">
           Exercicio
         </Link>

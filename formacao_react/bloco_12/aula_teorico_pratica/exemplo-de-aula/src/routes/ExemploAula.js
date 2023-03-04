@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { login } from "../services/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Input, Button } from "@chakra-ui/react";
 import * as yup from "yup";
 
 export default function ExemploAula() {
@@ -33,13 +34,13 @@ export default function ExemploAula() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="email" {...register("email")} />
+      <Input type="email" {...register("email")} />
       {errors.email && <span>{errors.email.message}</span>}
 
-      <input type="password" {...register("password")} />
+      <Input type="password" {...register("password")} />
       {errors.password && <span>{errors.password.message}</span>}
 
-      <button type="submit">Enviar</button>
+      <Button type="submit">Enviar</Button>
     </form>
   );
 }
