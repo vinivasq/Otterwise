@@ -1,6 +1,7 @@
 import { post } from "../services/post";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Flex, Input, Button, Stack, StackDivider } from "@chakra-ui/react";
 import * as yup from "yup";
 
 const Exercicio = () => {
@@ -34,15 +35,32 @@ const Exercicio = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register("title")} />
-      {errors.title && <span>{errors.title.message}</span>}
+    <Flex
+      as="form"
+      direction="column"
+      m={"auto"}
+      mt="1rem"
+      gap="0.5rem"
+      maxWidth={["90%", "350px"]}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Stack spacing="1rem" divider={<StackDivider />}>
+        <label>
+          Título da postagem
+          <Input type="text" {...register("title")} />
+        </label>
+        {errors.title && <span>{errors.title.message}</span>}
+        <label>
+          Descrição
+          <Input type="text" {...register("description")} />
+        </label>
+        {errors.description && <span>{errors.description.message}</span>}
+      </Stack>
 
-      <input type="text" {...register("description")} />
-      {errors.description && <span>{errors.description.message}</span>}
-
-      <button type="submit">Enviar</button>
-    </form>
+      <Button colorScheme="purple" type="submit">
+        Enviar
+      </Button>
+    </Flex>
   );
 };
 
