@@ -1,7 +1,8 @@
 import React from "react";
+import Posts from "../components/Posts";
 
 const Comment = () => {
-  return <div>Comment</div>;
+  return <Posts />;
 };
 
 export default Comment;
