@@ -15,6 +15,7 @@ const Posts = () => {
       const response = id ? await getPost(id) : await listAllPosts({ userId });
       console.log(response.data);
       setData(response.data);
+      console.log(data);
     };
     request();
   }, []);
