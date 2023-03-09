@@ -20,7 +20,7 @@ const Product = (props) => {
   const [count, setCount] = useState(0);
 
   return (
-    <Card height="100%">
+    <Card>
       <CardHeader padding="0">
         <Image
           borderRadius="0.375rem 0.375rem 0px 0px"
