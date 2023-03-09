@@ -20,7 +20,7 @@ const Product = (props) => {
   const [count, setCount] = useState(0);
 
   return (
-    <Card>
+    <Card height="100%">
       <CardHeader padding="0">
         <Image
           borderRadius="0.375rem 0.375rem 0px 0px"
@@ -30,9 +30,13 @@ const Product = (props) => {
           src={image}
         />
       </CardHeader>
-      <Stack divider={<StackDivider />} padding="0.5rem">
+      <Stack divider={<StackDivider />} padding="0.5rem" height="100%">
         <CardBody padding="0">
-          <Stack divider={<StackDivider />}>
+          <Stack
+            divider={<StackDivider />}
+            height="100%"
+            justifyContent="center"
+          >
             <Box>
               <Heading size="md">{title}</Heading>
             </Box>
@@ -50,7 +54,12 @@ const Product = (props) => {
             colorScheme="green"
             variant="outline"
             boxShadow="md"
-            onClick={() => setCount(count - 1)}
+            onClick={() => {
+              if (count >= 1) {
+                setCount(count - 1);
+              }
+              return;
+            }}
           >
             -
           </Button>
@@ -74,7 +83,12 @@ const Product = (props) => {
             padding="0"
             colorScheme="green"
             boxShadow="md"
-            onClick={() => setCount(count + 1)}
+            onClick={() => {
+              if (count < stockAmount) {
+                setCount(count + 1);
+              }
+              return;
+            }}
           >
             +
           </Button>
