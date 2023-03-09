@@ -1,10 +1,9 @@
 import React from "react";
-import { Container, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Container, ListItem } from "@chakra-ui/react";
 import Product from "../components/Product";
 import { products } from "../providers/products";
-import { ShoppingCart } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
-import Cart from "./Cart";
+import CartLink from "../components/CartLink";
+import ProductsList from "../components/ProductsList";
 
 const Home = () => {
   return (
@@ -18,33 +17,8 @@ const Home = () => {
       alignItems="center"
       gap="1rem"
     >
-      <Container
-        m={0}
-        position="fixed"
-        top="1rem"
-        right="1rem"
-        padding=".5rem"
-        zIndex="1"
-        bg="white"
-        borderRadius="md"
-        border="1px solid #38A169"
-        boxShadow="md"
-        maxWidth="-webkit-fit-content"
-        alignSelf="flex-end"
-      >
-        <Link to="/cart" element={<Cart />}>
-          <ShoppingCart color="#38A169" size={24} />
-        </Link>
-      </Container>
-      <UnorderedList
-        m={0}
-        listStyleType="none"
-        display="flex"
-        flexWrap="wrap"
-        gap="1rem"
-        justifyContent={["flex-start", "flex-start", "center"]}
-        alignItems="center"
-      >
+      <CartLink />
+      <ProductsList>
         {products.map((product, i) => {
           return (
             <ListItem
@@ -67,7 +41,7 @@ const Home = () => {
             </ListItem>
           );
         })}
-      </UnorderedList>
+      </ProductsList>
     </Container>
   );
 };
