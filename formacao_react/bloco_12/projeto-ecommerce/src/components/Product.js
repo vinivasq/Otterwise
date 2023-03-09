@@ -24,8 +24,9 @@ const Product = (props) => {
       <CardHeader padding="0">
         <Image
           borderRadius="0.375rem 0.375rem 0px 0px"
+          objectFit={"cover"}
           boxSize="100%"
-          height="8rem"
+          height="9rem"
           src={image}
         />
       </CardHeader>
@@ -41,12 +42,7 @@ const Product = (props) => {
             </Box>
           </Stack>
         </CardBody>
-        <CardFooter
-          padding="0"
-          alignItems="center"
-          gap="2"
-          justifyContent="center"
-        >
+        <CardFooter padding="0" gap="2" justifyContent="center">
           <Button
             height="2rem"
             width="1rem"
