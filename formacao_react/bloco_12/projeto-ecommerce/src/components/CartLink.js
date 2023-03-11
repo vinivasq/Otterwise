@@ -9,8 +9,8 @@ const CartLink = () => {
     <Container
       m={0}
       position="fixed"
-      top="1rem"
-      right="1rem"
+      top=".5rem"
+      right=".5rem"
       padding=".5rem"
       zIndex="1"
       bg="white"

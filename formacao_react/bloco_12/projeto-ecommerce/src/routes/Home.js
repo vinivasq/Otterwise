@@ -1,22 +1,14 @@
 import React from "react";
-import { Container, ListItem } from "@chakra-ui/react";
+import { ListItem } from "@chakra-ui/react";
 import Product from "../components/Product";
 import { products } from "../providers/products";
 import CartLink from "../components/CartLink";
 import ProductsList from "../components/ProductsList";
+import ProductsContainer from "../components/ProductsContainer";
 
 const Home = () => {
   return (
-    <Container
-      display="flex"
-      flexDirection="column"
-      minWidth="100%"
-      padding={["0.5rem", "1rem"]}
-      backgroundColor="#d9f99d"
-      justifyContent="center"
-      alignItems="center"
-      gap="1rem"
-    >
+    <ProductsContainer>
       <CartLink />
       <ProductsList>
         {products.map((product, i) => {
@@ -43,7 +35,7 @@ const Home = () => {
           );
         })}
       </ProductsList>
-    </Container>
+    </ProductsContainer>
   );
 };
 

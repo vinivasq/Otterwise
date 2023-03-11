@@ -36,6 +36,7 @@ const Product = (props) => {
   if (amount === 0 && localStorage.getItem(JSON.stringify(product))) {
     localStorage.removeItem(JSON.stringify(product));
   }
+
   return (
     <ProductCard
       image={image}
