@@ -33,6 +33,9 @@ const Product = (props) => {
   const { image, title, stockAmount, price, product } = props;
   const [amount, setAmount] = useState(checkCart);
 
+  if (amount === 0 && localStorage.getItem(JSON.stringify(product))) {
+    localStorage.removeItem(JSON.stringify(product));
+  }
   return (
     <ProductCard
       image={image}
