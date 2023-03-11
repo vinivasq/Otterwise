@@ -15,7 +15,7 @@ const Counter = (props) => {
       justifyContent="center"
       boxShadow="md"
     >
-      {cartAmount ? cartAmount : amount}
+      {amount}
     </Text>
   );
 };
