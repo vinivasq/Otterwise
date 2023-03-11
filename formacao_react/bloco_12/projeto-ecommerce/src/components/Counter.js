@@ -1,8 +1,7 @@
 import React from "react";
 import { Text } from "@chakra-ui/react";
 const Counter = (props) => {
-  const { amount, product } = props;
-  const cartAmount = localStorage.getItem(JSON.stringify(product));
+  const { amount } = props;
 
   return (
     <Text
