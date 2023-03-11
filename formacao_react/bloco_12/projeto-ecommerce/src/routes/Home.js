@@ -33,6 +33,7 @@ const Home = () => {
               key={i}
             >
               <Product
+                product={product}
                 image={product.image}
                 title={product.title}
                 stockAmount={product.stockAmount}

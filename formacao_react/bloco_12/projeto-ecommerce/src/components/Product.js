@@ -7,21 +7,31 @@ import RemoveButton from "./RemoveButton";
 import Counter from "./Counter";
 
 const Product = (props) => {
-  const { image, title, stockAmount, price } = props;
-
-  const [amount, setAmount] = useState(0);
+  const checkCart = () => {
+    const cartAmount = localStorage.getItem(JSON.stringify(product));
+    if (cartAmount) {
+      return parseInt(cartAmount);
+    } else {
+      return 0;
+    }
+  };
 
   const addToCart = () => {
     if (amount < stockAmount) {
       setAmount(amount + 1);
+      localStorage.setItem(JSON.stringify(product), amount + 1);
     }
   };
 
   const removeFromCart = () => {
     if (amount > 0) {
       setAmount(amount - 1);
+      localStorage.setItem(JSON.stringify(product), amount - 1);
     }
   };
+
+  const { image, title, stockAmount, price, product } = props;
+  const [amount, setAmount] = useState(checkCart);
 
   return (
     <ProductCard

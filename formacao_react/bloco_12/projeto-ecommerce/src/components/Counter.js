@@ -1,7 +1,8 @@
 import React from "react";
 import { Text } from "@chakra-ui/react";
 const Counter = (props) => {
-  const { amount } = props;
+  const { amount, product } = props;
+  const cartAmount = localStorage.getItem(JSON.stringify(product));
 
   return (
     <Text
@@ -14,7 +15,7 @@ const Counter = (props) => {
       justifyContent="center"
       boxShadow="md"
     >
-      {amount}
+      {cartAmount ? cartAmount : amount}
     </Text>
   );
 };
