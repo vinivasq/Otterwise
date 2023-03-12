@@ -4,7 +4,6 @@ import AddButton from "./AddButton";
 import Counter from "./Counter";
 import RemoveButton from "./RemoveButton";
 import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
-import { Trash } from "@phosphor-icons/react";
 import DeleteButton from "./DeleteButton";
 
 const CartItem = (props) => {
