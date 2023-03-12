@@ -9,7 +9,7 @@ const DeleteButton = ({ callback }) => {
       variant="outline"
       colorScheme="green"
       padding={0}
-      onClick={() => callback()}
+      onClick={(event) => callback(event)}
     >
       <Trash color="green" size={24} />
     </Button>

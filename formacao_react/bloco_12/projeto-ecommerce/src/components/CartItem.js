@@ -7,7 +7,8 @@ import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
 import DeleteButton from "./DeleteButton";
 
 const CartItem = (props) => {
-  const { image, title, cartAmount, price, product } = props;
+  const { cartAmount, product } = props;
+  const { image, title, price } = product;
 
   const addToCart = () => {
     if (amount < product.stockAmount) {
@@ -23,8 +24,8 @@ const CartItem = (props) => {
     }
   };
 
-  const deleteItem = () => {
-    console.log("deletou");
+  const deleteItem = (event) => {
+    console.log(event.target.parentElement);
   };
 
   const [amount, setAmount] = useState(parseInt(cartAmount));

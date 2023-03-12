@@ -16,14 +16,7 @@ const Cart = () => {
           const productInfo = JSON.parse(product[0]);
           const cartAmount = product[1];
           return (
-            <CartItem
-              key={i}
-              product={productInfo}
-              image={productInfo.image}
-              title={productInfo.title}
-              cartAmount={cartAmount}
-              price={productInfo.price}
-            />
+            <CartItem key={i} product={productInfo} cartAmount={cartAmount} />
           );
         })}
       </CartList>
