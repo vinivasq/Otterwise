@@ -14,6 +14,7 @@ const CartList = (props) => {
     >
       <Stack
         padding=".5rem"
+        width="calc(100% - 2rem)"
         direction="row"
         textAlign="center"
         divider={<StackDivider />}

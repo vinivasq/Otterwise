@@ -4,7 +4,6 @@ import AddButton from "./AddButton";
 import Counter from "./Counter";
 import RemoveButton from "./RemoveButton";
 import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
-import DeleteButton from "./DeleteButton";
 
 const CartItem = (props) => {
   const { cartAmount, product } = props;
@@ -24,14 +23,10 @@ const CartItem = (props) => {
     }
   };
 
-  const deleteItem = (event) => {
-    console.log(event.target.parentElement);
-  };
-
   const [amount, setAmount] = useState(parseInt(cartAmount));
 
   return (
-    <Card direction="row">
+    <Card direction="row" flexGrow="1">
       <CardBody
         padding={0}
         display="flex"
@@ -69,15 +64,7 @@ const CartItem = (props) => {
           <AddButton callback={addToCart} />
         </Box>
         <Text width="25%">R${price}</Text>
-        <Box
-          width="25%"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text width="80%">R${(parseInt(price) * amount).toFixed(2)}</Text>
-          <DeleteButton callback={deleteItem} />
-        </Box>
+        <Text width="25%">R${(parseInt(price) * amount).toFixed(2)}</Text>
       </CardBody>
     </Card>
   );
