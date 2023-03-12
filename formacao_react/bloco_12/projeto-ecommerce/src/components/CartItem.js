@@ -10,7 +10,7 @@ const CartItem = (props) => {
   const { cartAmount, product } = props;
   const { image, title, price } = product;
   const [deleted, setDeleted] = useState(false)
-  const [amount, setAmount] = useState(parseInt(cartAmount));
+  const [amount, setAmount] = useState(parseFloat(cartAmount));
   
   const addToCart = () => {
     if (amount < product.stockAmount) {
@@ -30,7 +30,7 @@ const CartItem = (props) => {
     localStorage.removeItem(JSON.stringify(product))
     return
   } 
-  
+
   return (
     <Box  display="flex" alignItems="center" gap=".5rem">
       <Card direction="row" flexGrow="1">
@@ -50,10 +50,11 @@ const CartItem = (props) => {
           >
             <Image
               src={image}
-              boxSize="4.125rem"
+              boxSize="3.125rem"
+              boxShadow="md"
               borderRadius="full"
               justifySelf="center"
-              padding=".5rem"
+              margin=".5rem"
             />
             <Text textAlign="center" fontWeight="medium" width="50%">
               {title}
@@ -71,13 +72,14 @@ const CartItem = (props) => {
             <AddButton callback={addToCart} />
           </Box>
           <Text width="25%">R${price}</Text>
-          <Text width="25%">R${(parseInt(price) * amount).toFixed(2)}</Text>
+          <Text width="25%">R${(parseFloat(price) * amount).toFixed(2)}</Text>
         </CardBody>
       </Card>
       <Button
         size="sm"
         variant="outline"
         colorScheme="green"
+        boxShadow="md"
         padding={0}
         onClick={() => setDeleted(true)}
       >

@@ -7,11 +7,12 @@ Uma empresa que implementa muito bem o carrinho de compras é a Amazon.
 Os estudantes terão que implementar um carrinho de compras para uma fruteira que venda frutas online. Nossa fruteira vende banana (R$6,00/kg), maçã (R$3,00/kg), laranja (R$5,50/kg), abacate (R$5,00/unidade) e manga (R$6,00/unidade).
 
 Tarefas
-[] Utilizar o Chakra-UI para criar as telas;
-[] As frutas que serão vendidas na fruteira online devem estar mockadas no código (monte da maneira que achar mais fácil);
-[] Devem ser implementadas duas telas, a de listagem das frutas e a do carrinho. Coloque uma imagem de cada [] fruta e a quantidade de frutas que o usuário pode escolher para adicionar ao carrinho;
-[] A tela do carrinho deve ter os itens adicionados e com as quantidades de cada item;
-[] O usuário pode remover itens nessa tela ou modificar a quantidade de cada item adicionado.
+[x] Utilizar o Chakra-UI para criar as telas;
+[x] As frutas que serão vendidas na fruteira online devem estar mockadas no código (monte da maneira que achar mais fácil);
+[x] Devem ser implementadas duas telas, a de listagem das frutas e a do carrinho. Coloque uma imagem de cada 
+[x] fruta e a quantidade de frutas que o usuário pode escolher para adicionar ao carrinho;
+[x] A tela do carrinho deve ter os itens adicionados e com as quantidades de cada item;
+[x] O usuário pode remover itens nessa tela ou modificar a quantidade de cada item adicionado.
 [] O usuário pode finalizar a compra, então é necessário a inclusão de um botão de “Finalizar Compra”. Ao clicar neste botão deve ser mostrado um feedback visual para o usuário do que foi comprado e o valor total;
 
 Observações
