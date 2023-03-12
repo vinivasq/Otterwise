@@ -1,8 +1,6 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 import CartItem from "../components/CartItem";
 import CartList from "../components/CartList";
-import DeleteButton from "../components/DeleteButton";
 import ProductsContainer from "../components/ProductsContainer";
 
 const Cart = () => {
@@ -18,10 +16,7 @@ const Cart = () => {
           const productInfo = JSON.parse(product[0]);
           const cartAmount = product[1];
           return (
-            <Box key={i} display="flex" alignItems="center" gap=".5rem">
-              <CartItem product={productInfo} cartAmount={cartAmount} />
-              <DeleteButton product={productInfo} />
-            </Box>
+            <CartItem key={i} product={productInfo} cartAmount={cartAmount} />
           );
         })}
       </CartList>
