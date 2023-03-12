@@ -9,7 +9,7 @@ const Counter = (props) => {
       height="2rem"
       width="2rem"
       borderRadius="md"
-      backgroundColor="#cbd5e1"
+      backgroundColor="#f1f5f9"
       alignItems="center"
       justifyContent="center"
       boxShadow="md"

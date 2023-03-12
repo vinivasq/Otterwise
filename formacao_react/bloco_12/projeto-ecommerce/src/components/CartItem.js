@@ -1,8 +1,28 @@
-import { Card, CardBody, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
 import React from "react";
+import { useState } from "react";
+import AddButton from "./AddButton";
+import Counter from "./Counter";
+import RemoveButton from "./RemoveButton";
 
 const CartItem = (props) => {
-  const { image, title, cartAmount, price } = props;
+  const { image, title, cartAmount, price, product } = props;
+
+  const addToCart = () => {
+    if (amount < product.stockAmount) {
+      setAmount(amount + 1);
+      localStorage.setItem(JSON.stringify(product), amount + 1);
+    }
+  };
+
+  const removeFromCart = () => {
+    if (amount > 0) {
+      setAmount(amount - 1);
+      localStorage.setItem(JSON.stringify(product), amount - 1);
+    }
+  };
+
+  const [amount, setAmount] = useState(parseInt(cartAmount));
 
   return (
     <Card direction="row">
@@ -14,22 +34,36 @@ const CartItem = (props) => {
         textAlign="center"
         width="100%"
       >
-        <Image
-          src={image}
-          boxSize="4.125rem"
-          borderRadius="full"
-          padding=".5rem"
-        />
-        <Text
-          width="calc(25% - 3.125rem)"
-          textAlign="start"
-          fontWeight="medium"
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          width="25%"
         >
-          {title}
-        </Text>
-        <Text width="25%">{cartAmount}</Text>
+          <Image
+            src={image}
+            boxSize="4.125rem"
+            borderRadius="full"
+            justifySelf="center"
+            padding=".5rem"
+          />
+          <Text textAlign="center" fontWeight="medium" width="50%">
+            {title}
+          </Text>
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap={2}
+          width="25%"
+        >
+          <RemoveButton callback={removeFromCart} />
+          <Counter amount={amount} />
+          <AddButton callback={addToCart} />
+        </Box>
         <Text width="25%">R${price}</Text>
-        <Text width="25%">R${(parseInt(price) * cartAmount).toFixed(2)}</Text>
+        <Text width="25%">R${(parseInt(price) * amount).toFixed(2)}</Text>
       </CardBody>
     </Card>
   );

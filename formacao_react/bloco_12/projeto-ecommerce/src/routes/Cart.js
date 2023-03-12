@@ -18,6 +18,7 @@ const Cart = () => {
           return (
             <CartItem
               key={i}
+              product={productInfo}
               image={productInfo.image}
               title={productInfo.title}
               cartAmount={cartAmount}
