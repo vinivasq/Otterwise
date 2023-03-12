@@ -1,9 +1,11 @@
-import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import AddButton from "./AddButton";
 import Counter from "./Counter";
 import RemoveButton from "./RemoveButton";
+import { Card, CardBody, Image, Text, Box } from "@chakra-ui/react";
+import { Trash } from "@phosphor-icons/react";
+import DeleteButton from "./DeleteButton";
 
 const CartItem = (props) => {
   const { image, title, cartAmount, price, product } = props;
@@ -16,10 +18,14 @@ const CartItem = (props) => {
   };
 
   const removeFromCart = () => {
-    if (amount > 0) {
+    if (amount > 1) {
       setAmount(amount - 1);
       localStorage.setItem(JSON.stringify(product), amount - 1);
     }
+  };
+
+  const deleteItem = () => {
+    console.log("deletou");
   };
 
   const [amount, setAmount] = useState(parseInt(cartAmount));
@@ -63,7 +69,15 @@ const CartItem = (props) => {
           <AddButton callback={addToCart} />
         </Box>
         <Text width="25%">R${price}</Text>
-        <Text width="25%">R${(parseInt(price) * amount).toFixed(2)}</Text>
+        <Box
+          width="25%"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text width="80%">R${(parseInt(price) * amount).toFixed(2)}</Text>
+          <DeleteButton callback={deleteItem} />
+        </Box>
       </CardBody>
     </Card>
   );
