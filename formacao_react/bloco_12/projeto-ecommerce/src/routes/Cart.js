@@ -2,7 +2,8 @@ import React, { createContext, useState } from "react";
 import CartItem from "../components/CartItem";
 import CartList from "../components/CartList";
 import ProductsContainer from "../components/ProductsContainer";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
+import { Check } from "@phosphor-icons/react";
 
 export const PriceContext = createContext();
 
@@ -11,9 +12,7 @@ const Cart = () => {
   const productsInCart = items.filter(
     (item) => item[0] !== "chakra-ui-color-mode"
   );
-
   let initialPrice = 0;
-
   productsInCart.map((product) => {
     const productPrice = parseFloat(JSON.parse(product[0]).price);
     const cartAmount = product[1];
@@ -22,28 +21,44 @@ const Cart = () => {
   });
 
   const [totalPrice, setTotalPrice] = useState(initialPrice);
-  // console.log(totalPrice);
 
   return (
     <ProductsContainer>
-      <CartList>
-        {productsInCart.map((product, i) => {
-          const productInfo = JSON.parse(product[0]);
-          const cartAmount = product[1];
-          return (
-            <PriceContext.Provider
-              key={i}
-              value={{ totalPrice, setTotalPrice }}
+      <PriceContext.Provider value={{ totalPrice, setTotalPrice }}>
+        <CartList>
+          {productsInCart.map((product, i) => {
+            const productInfo = JSON.parse(product[0]);
+            const cartAmount = product[1];
+            return (
+              <CartItem key={i} product={productInfo} cartAmount={cartAmount} />
+            );
+          })}
+          <Box
+            width="25%"
+            display="flex"
+            alignSelf="flex-end"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            gap=".5rem"
+          >
+            <Text textAlign="center">
+              Valor total: R${totalPrice.toFixed(2)}
+            </Text>
+            <Button
+              size="sm"
+              // width="4rem"
+              colorScheme="green"
+              boxShadow="md"
+              padding=".5rem"
+              gap=".5rem"
             >
-              <CartItem product={productInfo} cartAmount={cartAmount} />
-            </PriceContext.Provider>
-          );
-        })}
-        <Box display="flex" justifyContent="flex-end" alignItems="center">
-          <Text>Valor total: </Text>
-          <Text>R${totalPrice.toFixed(2)}</Text>
-        </Box>
-      </CartList>
+              Finalizar compra
+              <Check color="white" size={24} />
+            </Button>
+          </Box>
+        </CartList>
+      </PriceContext.Provider>
     </ProductsContainer>
   );
 };

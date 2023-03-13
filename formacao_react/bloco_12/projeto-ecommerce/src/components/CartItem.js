@@ -11,7 +11,6 @@ const CartItem = (props) => {
   const { cartAmount, product } = props;
   const { image, title, price } = product;
   const { totalPrice, setTotalPrice } = useContext(PriceContext);
-  const [deleted, setDeleted] = useState(false);
   const [amount, setAmount] = useState(parseFloat(cartAmount));
 
   const addToCart = () => {
@@ -35,13 +34,6 @@ const CartItem = (props) => {
       localStorage.setItem(JSON.stringify(product), amount - 1);
     }
   };
-
-  if (deleted) {
-    localStorage.removeItem(JSON.stringify(product));
-    setTotalPrice(totalPrice - parseFloat(price) * amount);
-
-    return;
-  }
 
   return (
     <Box display="flex" alignItems="center" gap=".5rem">
@@ -94,7 +86,8 @@ const CartItem = (props) => {
         boxShadow="md"
         padding={0}
         onClick={() => {
-          setDeleted(true);
+          localStorage.removeItem(JSON.stringify(product));
+          setTotalPrice(totalPrice - parseFloat(price) * amount);
         }}
       >
         <Trash color="green" size={24} />
