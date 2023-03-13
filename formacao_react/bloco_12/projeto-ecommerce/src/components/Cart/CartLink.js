@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "../routes/Cart";
+import Cart from "../../routes/Cart";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { Container } from "@chakra-ui/react";

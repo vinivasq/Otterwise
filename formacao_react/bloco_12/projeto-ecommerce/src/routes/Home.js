@@ -1,10 +1,10 @@
 import React from "react";
 import { ListItem } from "@chakra-ui/react";
-import Product from "../components/Product";
+import Product from "../components/Product/Product";
 import { products } from "../providers/products";
-import CartLink from "../components/CartLink";
-import ProductsList from "../components/ProductsList";
-import ProductsContainer from "../components/ProductsContainer";
+import CartLink from "../components/Cart/CartLink";
+import ProductsList from "../components/Product/ProductsList";
+import ProductsContainer from "../components/Product/ProductsContainer";
 
 const Home = () => {
   return (

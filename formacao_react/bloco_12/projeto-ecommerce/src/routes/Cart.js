@@ -1,8 +1,8 @@
 import React, { createContext, useState } from "react";
-import CartItem from "../components/CartItem/CartItem";
-import CartList from "../components/CartList";
-import ProductsContainer from "../components/ProductsContainer";
-import FinishOrder from "../components/FinishOrder/FinishOrder.js";
+import CartItem from "../components/Cart/CartItem/CartItem";
+import CartList from "../components/Cart/CartList";
+import ProductsContainer from "../components/Product/ProductsContainer";
+import FinishOrder from "../components/Cart/FinishOrder/FinishOrder.js";
 
 export const PriceContext = createContext();
 

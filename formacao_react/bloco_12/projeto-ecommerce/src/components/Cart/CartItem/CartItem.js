@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import AddButton from "../Buttons/AddButton";
-import Counter from "../Counter";
-import RemoveButton from "../Buttons/RemoveButton";
+import AddButton from "../../Buttons/AddButton";
+import Counter from "../../Product/Counter";
+import RemoveButton from "../../Buttons/RemoveButton";
 import { Card, Text, Box } from "@chakra-ui/react";
-import { PriceContext } from "../../routes/Cart";
+import { PriceContext } from "../../../routes/Cart";
 import CartItemBody from "./CartItemBody";
 import CartItemHeader from "./CartItemHeader";
 import CartButtonsContainer from "./CartButtonsContainer";
-import DeleteButton from "../Buttons/DeleteButton";
+import DeleteButton from "../../Buttons/DeleteButton";
 
 const CartItem = (props) => {
   const { cartAmount, product } = props;

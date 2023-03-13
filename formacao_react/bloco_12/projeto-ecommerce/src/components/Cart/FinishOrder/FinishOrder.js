@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "@chakra-ui/react";
 import { Check } from "@phosphor-icons/react";
 import OrderContainer from "./OrderContainer";
-import FinishOrderButton from "../Buttons/FinishOrderButton";
+import FinishOrderButton from "../../Buttons/FinishOrderButton";
 
 const FinishOrder = (props) => {
   const { totalPrice } = props;
