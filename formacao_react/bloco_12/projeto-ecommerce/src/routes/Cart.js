@@ -1,8 +1,10 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import CartItem from "../components/CartItem";
 import CartList from "../components/CartList";
 import ProductsContainer from "../components/ProductsContainer";
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text } from "@chakra-ui/react";
+
+export const PriceContext = createContext();
 
 const Cart = () => {
   const items = Object.entries(localStorage);
@@ -10,19 +12,17 @@ const Cart = () => {
     (item) => item[0] !== "chakra-ui-color-mode"
   );
 
-  let totalPrice  = 0
+  let initialPrice = 0;
 
   productsInCart.map((product) => {
-    const productPrice = parseFloat(JSON.parse(product[0]).price)
-    const cartAmount = product[1]
+    const productPrice = parseFloat(JSON.parse(product[0]).price);
+    const cartAmount = product[1];
 
-    console.log(productPrice);
-    console.log(cartAmount);
+    return (initialPrice += productPrice * cartAmount);
+  });
 
-    return totalPrice += productPrice * cartAmount
-  })
-
-  console.log(totalPrice);
+  const [totalPrice, setTotalPrice] = useState(initialPrice);
+  // console.log(totalPrice);
 
   return (
     <ProductsContainer>
@@ -31,10 +31,15 @@ const Cart = () => {
           const productInfo = JSON.parse(product[0]);
           const cartAmount = product[1];
           return (
-            <CartItem key={i} product={productInfo} cartAmount={cartAmount} />
+            <PriceContext.Provider
+              key={i}
+              value={{ totalPrice, setTotalPrice }}
+            >
+              <CartItem product={productInfo} cartAmount={cartAmount} />
+            </PriceContext.Provider>
           );
         })}
-        <Box display="flex" jutifyContent="" align>
+        <Box display="flex" justifyContent="flex-end" alignItems="center">
           <Text>Valor total: </Text>
           <Text>R${totalPrice.toFixed(2)}</Text>
         </Box>
