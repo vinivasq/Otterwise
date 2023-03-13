@@ -3,6 +3,7 @@ import Cart from "../routes/Cart";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { Container } from "@chakra-ui/react";
+import { toast } from "react-toastify";
 
 const CartLink = () => {
   return (
@@ -19,6 +20,11 @@ const CartLink = () => {
       boxShadow="md"
       maxWidth="-webkit-fit-content"
       alignSelf="flex-end"
+      onClick={() => {
+        if (localStorage.length < 2) {
+          toast.error("Seu carrinho está vazio!");
+        }
+      }}
     >
       <Link to="/cart" element={<Cart />}>
         <ShoppingCart color="#38A169" size={24} />

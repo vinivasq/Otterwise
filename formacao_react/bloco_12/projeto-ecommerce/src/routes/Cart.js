@@ -4,6 +4,8 @@ import CartList from "../components/CartList";
 import ProductsContainer from "../components/ProductsContainer";
 import { Box, Button, Text } from "@chakra-ui/react";
 import { Check } from "@phosphor-icons/react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const PriceContext = createContext();
 
@@ -21,6 +23,7 @@ const Cart = () => {
   });
 
   const [totalPrice, setTotalPrice] = useState(initialPrice);
+  const navigate = useNavigate();
 
   return (
     <ProductsContainer>
@@ -42,16 +45,23 @@ const Cart = () => {
             alignItems="center"
             gap=".5rem"
           >
-            <Text textAlign="center">
-              Valor total: R${totalPrice.toFixed(2)}
-            </Text>
+            <Text textAlign="center">Subtotal: R${totalPrice.toFixed(2)}</Text>
             <Button
               size="sm"
-              // width="4rem"
               colorScheme="green"
               boxShadow="md"
               padding=".5rem"
               gap=".5rem"
+              onClick={() => {
+                if (totalPrice.toFixed(2) > 0) {
+                  localStorage.clear();
+                  toast.success("Compra realizada com sucesso!");
+                  navigate("/");
+                  return;
+                }
+                toast.error("Adicione produtos para comprar!");
+                navigate("/");
+              }}
             >
               Finalizar compra
               <Check color="white" size={24} />
