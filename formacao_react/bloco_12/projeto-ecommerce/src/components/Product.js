@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { CardFooter } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
-import AddButton from "./AddButton";
-import RemoveButton from "./RemoveButton";
+import AddButton from "./Buttons/AddButton";
+import RemoveButton from "./Buttons/RemoveButton";
 import Counter from "./Counter";
 
 const Product = (props) => {
