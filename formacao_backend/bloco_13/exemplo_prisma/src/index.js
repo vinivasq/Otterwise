@@ -1,17 +1,14 @@
-import Fastify from "fastify";
-const fastify = Fastify({
-  logger: true,
-});
+import server from "./config/server.js";
 
-fastify.get("/", async (request, reply) => {
+server.get("/", async (request, reply) => {
   reply.send({ posts: [] });
 });
 
 const start = async () => {
   try {
-    await fastify.listen({ port: 3000 });
+    await server.listen({ port: 3000 });
   } catch (err) {
-    fastify.log.error(err);
+    server.log.error(err);
     process.exit(1);
   }
 };
