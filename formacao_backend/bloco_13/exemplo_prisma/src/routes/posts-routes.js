@@ -6,6 +6,12 @@ const routes = [
     url: "/posts",
     handler: postController.getAll,
   },
+
+  {
+    method: "POST",
+    url: "/posts",
+    handler: postController.create,
+  },
 ];
 
 export default (fasify, _, next) => {

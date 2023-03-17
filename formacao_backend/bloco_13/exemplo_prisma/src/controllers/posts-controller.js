@@ -6,5 +6,25 @@ export const getAll = async (request, reply) => {
     return posts;
   } catch (error) {
     console.log(error);
+    reply.status(500).send("Não foi possível carregar os posts");
+  }
+};
+
+export const create = async (request, reply) => {
+  try {
+    const { title, content, authorId } = request.body;
+    const post = await prisma.post.create({
+      data: {
+        title,
+        content,
+        author: {
+          connect: { id: authorId },
+        },
+      },
+    });
+    reply.send(post);
+  } catch (error) {
+    console.log(error);
+    reply.status(500).send("Não foi possível criar o post");
   }
 };
