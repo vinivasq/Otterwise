@@ -20,7 +20,7 @@ export const create = async (request, reply) => {
         author: {
           connect: { id: Number(authorId) },
         },
-        cover: request.file.path
+        cover: request.file?.path,
       },
     });
     reply.send(post);

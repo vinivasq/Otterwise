@@ -1,18 +1,18 @@
 import * as postController from "../controllers/posts-controller.js";
-import multer from "fastify-multer"
-import path from "path"
+import multer from "fastify-multer";
+import path from "path";
 
 const storage = multer.diskStorage({
   destination: (req, reply, callback) => {
-    callback(null, "public/image")
+    callback(null, "public/images");
   },
   filename: (request, file, callback) => {
-    const extension = path.extname(file.originalname)
-    callback(null, file.originalname + "-" + Date.now() + extension)
+    const extension = path.extname(file.originalname);
+    callback(null, file.originalname + "-" + Date.now() + extension);
   },
-})
+});
 
-const upload = multer({ storage })
+const upload = multer({ storage });
 
 const routes = [
   {
