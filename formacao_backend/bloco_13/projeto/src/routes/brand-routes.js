@@ -3,22 +3,22 @@ import * as brandController from "../controllers/brand-controller.js";
 const routes = [
   {
     method: "GET",
-    url: "/brand",
+    url: "/brands",
     handler: brandController.getAllBrands,
   },
   {
     method: "POST",
-    url: "/brand",
+    url: "/brands",
     handler: brandController.createBrand,
   },
   {
     method: "PUT",
-    url: "/brand",
+    url: "/brands",
     handler: brandController.editBrand,
   },
   {
     method: "DELETE",
-    url: "/brand",
+    url: "/brands",
     handler: brandController.deleteBrand,
   },
 ];
