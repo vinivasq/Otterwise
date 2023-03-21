@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Label from "./Label";
 import Button from "../Button/Button";
 import { useForm } from "react-hook-form";
+import { createPost } from "../../controller/createPost";
 
 const StyledInput = styled.input`
   padding: 0.5rem;
@@ -29,22 +30,36 @@ const StyledForm = styled.form`
 
 const Form = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const formData = new FormData();
-    const dataEntries = Object.entries(data);
+    // const dataEntries = Object.entries(data);
 
-    dataEntries.forEach((data) => {
-      formData.append(data[0], data[1]);
-    });
+    // dataEntries.forEach((data) => {
+    //   formData.append(data[0], data[1]);
+    // });
 
-    console.log(formData.get("image"));
+    console.log(data.cover);
+
+    formData.append("cover", data.cover[0]);
+    formData.append("title", data.title);
+    formData.append("content", data.content);
+    formData.append("authorId", data.authorId);
+
+    console.log(formData);
+
+    try {
+      const response = await createPost(formData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
         Selecione uma imagem:
-        <input type="file" {...register("image")} />
+        <input type="file" {...register("cover")} />
       </Label>
       <Label>
         Título:
