@@ -32,20 +32,11 @@ const Form = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     const formData = new FormData();
-    // const dataEntries = Object.entries(data);
-
-    // dataEntries.forEach((data) => {
-    //   formData.append(data[0], data[1]);
-    // });
-
-    console.log(data.cover);
 
     formData.append("cover", data.cover[0]);
     formData.append("title", data.title);
     formData.append("content", data.content);
     formData.append("authorId", data.authorId);
-
-    console.log(formData);
 
     try {
       const response = await createPost(formData);
