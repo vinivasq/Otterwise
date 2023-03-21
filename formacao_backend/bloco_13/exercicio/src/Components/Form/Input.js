@@ -16,20 +16,10 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-`;
-
 const Input = (props) => {
-  const { label } = props;
+  const { type = "text" } = props;
 
-  return (
-    <StyledLabel>
-      {label}:
-      <StyledInput />
-    </StyledLabel>
-  );
+  return <StyledInput type={type} />;
 };
 
 export default Input;

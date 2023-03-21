@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Button from "../Button/Button";
+import Label from "./Label";
 import Input from "./Input";
+import Button from "../Button/Button";
 
 const StyledForm = styled.form`
   display: flex;
@@ -9,18 +10,32 @@ const StyledForm = styled.form`
   justify-content: center;
   gap: 0.5rem;
 `;
+
 const Form = () => {
   return (
     <StyledForm
       onSubmit={(e) => {
         e.preventDefault();
+        console.log(e);
       }}
     >
-      <Input label="Selecione uma Imagem" />
-      <Input label="Titulo" />
-      <Input label="Conteudo" />
-      <Input label="Usuário" />
-      <Button />
+      <Label>
+        Selecione uma imagem:
+        <input type="file" />
+      </Label>
+      <Label>
+        Título:
+        <Input />
+      </Label>
+      <Label>
+        Conteúdo
+        <Input />
+      </Label>
+      <Label>
+        Usuário
+        <Input />
+      </Label>
+      <Button />{" "}
     </StyledForm>
   );
 };
