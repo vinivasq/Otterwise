@@ -17,7 +17,9 @@ export const createCar = async (request, reply) => {
       data: {
         name,
         year,
-        brandId,
+        brand: {
+          connect: { id: brandId },
+        },
         image_url,
       },
     });
@@ -38,7 +40,9 @@ export const editCar = async (request, reply) => {
       data: {
         name,
         year,
-        brandId,
+        brand: {
+          connect: { id: brandId },
+        },
         image_url,
       },
     });
