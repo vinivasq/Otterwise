@@ -1,11 +1,31 @@
 import { prisma } from "../helpers/utils.js";
 
+const formatOrder = (item) => {
+  const split = item.split(".");
+  return {
+    [split[0]]: split[1],
+  };
+};
+
 export const getAll = async (request, reply) => {
   try {
+    const { email, orderBy } = request.query;
+    let orderFilter = null;
+    if (Array.isArray(orderBy)) {
+      orderFilter = orderBy.map(formatOrder);
+    } else {
+      orderFilter = [formatOrder(orderBy)];
+    }
+
     const posts = await prisma.post.findMany({
-      orderBy: {
-        createdAt: "desc"
-      }
+      orderBy: orderFilter,
+      where: {
+        author: {
+          email: {
+            contains: email,
+          },
+        },
+      },
     });
     return posts;
   } catch (error) {
