@@ -4,7 +4,7 @@ const routes = [
   {
     method: "GET",
     url: "/users",
-    handler: postController.getAll,
+    handler: usersController.getAll,
   },
 ];
 
