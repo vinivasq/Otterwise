@@ -32,3 +32,15 @@ export const createAccessToken = (data) => {
     });
   });
 };
+
+export const verifyToken = (token) => {
+  return new Promise((res, rej) => {
+    if (!token) {
+      rej("Token inválido");
+    }
+    jwt.verify(token, process.env.JWT_SECRET, {}, (err, decodedData) => {
+      if (err) rej(err);
+      res(decodedData);
+    });
+  });
+};
