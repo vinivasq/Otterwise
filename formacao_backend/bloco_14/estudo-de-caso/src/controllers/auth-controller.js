@@ -1,4 +1,9 @@
-import { comparePassword, hashPassword, prisma } from "../helpers/utils.js";
+import {
+  comparePassword,
+  createAccessToken,
+  hashPassword,
+  prisma,
+} from "../helpers/utils.js";
 
 export const login = async (request, reply) => {
   const { email, password } = request.body;
@@ -14,7 +19,10 @@ export const login = async (request, reply) => {
     }
 
     const { password: pass, ...data } = user;
-    return reply.send({ user: data, accessToken: "token" });
+    return reply.send({
+      user: data,
+      accessToken: await createAccessToken(data),
+    });
   } catch (error) {
     reply.status(500).send("Não foi possível realizar o login");
     console.log(error);
