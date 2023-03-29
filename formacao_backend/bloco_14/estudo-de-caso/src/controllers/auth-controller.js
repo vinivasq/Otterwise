@@ -1,8 +1,20 @@
-import { hashPassword, prisma } from "../helpers/utils.js";
+import { comparePassword, hashPassword, prisma } from "../helpers/utils.js";
 
 export const login = async (request, reply) => {
+  const { email, password } = request.body;
   try {
-    return "autenticado";
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (!user) {
+      return reply.status(401).send("Usuário ou senha incorretos");
+    }
+
+    if (!(await comparePassword(password, user.password))) {
+      return reply.status(401).send("Usuário ou senha incorretos");
+    }
+
+    const { password: pass, ...data } = user;
+    return reply.send({ user: data, accessToken: "token" });
   } catch (error) {
     reply.status(500).send("Não foi possível realizar o login");
     console.log(error);
