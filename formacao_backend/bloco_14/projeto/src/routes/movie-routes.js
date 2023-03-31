@@ -2,10 +2,10 @@ import { validateRequest } from "../middleware/auth.js";
 import * as movieController from "../controllers/movie-controller.js";
 
 export default {
-  listAllMovies: {
+  listMovie: {
     method: "GET",
     url: "/movie",
-    handler: movieController.listAll,
+    handler: movieController.listMovie,
   },
 
   createMovie: {

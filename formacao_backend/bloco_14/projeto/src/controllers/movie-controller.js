@@ -1,12 +1,33 @@
 import { prisma } from "../helpers/utils.js";
 
-export const listAll = async (request, reply) => {
+export const listMovie = async (request, reply) => {
+  const { id, title } = request.query;
+
   try {
-    const movies = await prisma.movie.findMany();
-    return movies;
+    if (id) {
+      const movie = await prisma.movie.findUnique({
+        where: {
+          id: Number(id),
+        },
+      });
+      return movie;
+    }
+
+    if (title) {
+      const movie = await prisma.movie.findMany({
+        where: {
+          title: {
+            contains: title,
+          },
+        },
+      });
+      return movie;
+    }
+
+    return await prisma.movie.findMany();
   } catch (error) {
     console.log(error);
-    reply.status(500).send("Não foi possível listar filmes");
+    reply.status(400).send("Não foi possível listar o filme");
   }
 };
 
