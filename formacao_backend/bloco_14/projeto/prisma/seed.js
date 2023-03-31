@@ -8,6 +8,36 @@ const userData = [
   },
 ];
 
+const genders = [
+  {
+    name: "Ação",
+  },
+  {
+    name: "Comédia",
+  },
+  {
+    name: "Terror",
+  },
+  {
+    name: "Suspense",
+  },
+  {
+    name: "Drama",
+  },
+  {
+    name: "Ficção Científica",
+  },
+  {
+    name: "Documentário",
+  },
+  {
+    name: "Romance",
+  },
+  {
+    name: "Corrida",
+  },
+];
+
 async function main() {
   console.log(`Start seeding ...`);
   let users = await prisma.user.findMany({
@@ -25,6 +55,17 @@ async function main() {
     });
     console.log(`Created user with id: ${user.id}`);
   }
+
+  for (const g of genders) {
+    const { name } = g;
+    const gender = await prisma.gender.create({
+      data: {
+        name,
+      },
+    });
+    console.log(`Created gender: ${gender}`);
+  }
+
   console.log(`Seeding finished.`);
 }
 

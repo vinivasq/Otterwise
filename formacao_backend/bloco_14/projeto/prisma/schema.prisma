@@ -19,13 +19,14 @@ model User {
 }
 
 model Movie {
-  id          Int    @id @default(autoincrement())
-  title       String @db.VarChar(255)
-  description String @db.VarChar(255)
-  genderId    Int    @unique
-  gender      Gender @relation(fields: [genderId], references: [id])
-  userId      Int    @unique
-  user        User   @relation(fields: [userId], references: [id])
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.VarChar(255)
+  genderId    Int      @unique
+  gender      Gender   @relation(fields: [genderId], references: [id])
+  userId      Int      @unique
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
 }
 
 model Gender {
