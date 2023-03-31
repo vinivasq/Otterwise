@@ -201,21 +201,33 @@
 		},
 		{
 			"name": "List Movie by ID",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Inter\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"url": {
+					"raw": "localhost:5000/movie?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"movie"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
 						}
-					}
-				},
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
 				"url": {
 					"raw": "localhost:5000/movie",
 					"host": [
@@ -230,18 +242,26 @@
 			"response": []
 		},
 		{
-			"name": "List All Movies",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
 			"name": "List Movie by Title",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/movie?title=John",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"movie"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "John"
+						}
+					]
+				}
 			},
 			"response": []
 		}
