@@ -49,3 +49,19 @@ export const editMovie = async (request, reply) => {
     reply.status(400).send("Não foi possível editar o filme");
   }
 };
+
+export const deleteMovie = async (request, reply) => {
+  const { id } = request.body;
+
+  try {
+    const movie = await prisma.movie.delete({
+      where: {
+        id,
+      },
+    });
+    return movie;
+  } catch (error) {
+    console.log(error);
+    reply.status(400).send("Não foi possível deletar o filme");
+  }
+};
