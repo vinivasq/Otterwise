@@ -15,4 +15,21 @@ model User {
   name     String? @db.VarChar(255)
   email    String  @unique @db.VarChar(255)
   password String
+  movies   Movie[]
+}
+
+model Movie {
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
+  description String @db.VarChar(255)
+  genderId    Int    @unique
+  gender      Gender @relation(fields: [genderId], references: [id])
+  userId      Int    @unique
+  user        User   @relation(fields: [userId], references: [id])
+}
+
+model Gender {
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(255)
+  movies Movie[]
 }
